@@ -65,5 +65,17 @@
       "indentSize" : 2,
       "configurationFormat" : "yaml"
     }
+  }, {
+    "module" : "spring-boot-mvc-empty",
+    "date" : "2024-01-08T11:17:33.329769887Z",
+    "properties" : {
+      "endOfLine" : "lf",
+      "packageName" : "com.jsorant.enigma.backend",
+      "projectName" : "Enigma Backend Java",
+      "baseName" : "enigmaBackendJava",
+      "indentSize" : 2,
+      "configurationFormat" : "yaml",
+      "serverPort" : 8080
+    }
   } ]
 }
