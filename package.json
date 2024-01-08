@@ -1,0 +1,13 @@
+{
+  "name": "enigma-backend-java",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Enigma Backend Java",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ]
+}

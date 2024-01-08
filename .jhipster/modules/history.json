@@ -1,0 +1,14 @@
+{
+  "actions" : [ {
+    "module" : "init",
+    "date" : "2024-01-08T09:47:21.395500820Z",
+    "properties" : {
+      "endOfLine" : "lf",
+      "packageName" : "com.jsorant.enigma.backend",
+      "projectName" : "Enigma Backend Java",
+      "baseName" : "enigmaBackendJava",
+      "indentSize" : 2,
+      "configurationFormat" : "yaml"
+    }
+  } ]
+}
