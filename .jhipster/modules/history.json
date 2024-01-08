@@ -77,5 +77,17 @@
       "configurationFormat" : "yaml",
       "serverPort" : 8080
     }
+  }, {
+    "module" : "logs-spy",
+    "date" : "2024-01-08T11:17:34.432616331Z",
+    "properties" : {
+      "endOfLine" : "lf",
+      "packageName" : "com.jsorant.enigma.backend",
+      "projectName" : "Enigma Backend Java",
+      "baseName" : "enigmaBackendJava",
+      "indentSize" : 2,
+      "configurationFormat" : "yaml",
+      "serverPort" : 8080
+    }
   } ]
 }

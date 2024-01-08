@@ -5,6 +5,7 @@
 ### Java
 
 You need to have Java 21:
+
 - [JDK 21](https://openjdk.java.net/projects/jdk/21/)
 
 ### Node.js and NPM
@@ -23,7 +24,6 @@ npm install
 
 ## Local environment
 
-
 <!-- jhipster-needle-localEnvironment -->
 
 ## Start up
@@ -32,12 +32,12 @@ npm install
 ./mvnw
 ```
 
-
 <!-- jhipster-needle-startupCommand -->
 
 ## Documentation
 
 - [Package types](documentation/package-types.md)
 - [Assertions](documentation/assertions.md)
+- [Logs Spy](documentation/logs-spy.md)
 
 <!-- jhipster-needle-documentation -->
