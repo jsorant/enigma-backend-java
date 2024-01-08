@@ -10,5 +10,16 @@
       "indentSize" : 2,
       "configurationFormat" : "yaml"
     }
+  }, {
+    "module" : "infinitest-filters",
+    "date" : "2024-01-08T09:47:21.586245698Z",
+    "properties" : {
+      "endOfLine" : "lf",
+      "packageName" : "com.jsorant.enigma.backend",
+      "projectName" : "Enigma Backend Java",
+      "baseName" : "enigmaBackendJava",
+      "indentSize" : 2,
+      "configurationFormat" : "yaml"
+    }
   } ]
 }
