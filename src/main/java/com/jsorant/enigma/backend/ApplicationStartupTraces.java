@@ -1,5 +1,7 @@
 package com.jsorant.enigma.backend;
 
+import com.jsorant.enigma.backend.shared.error.domain.Assert;
+import com.jsorant.enigma.backend.shared.generation.domain.ExcludeFromGeneratedCodeCoverage;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.stream.Collectors;
@@ -9,8 +11,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
-import com.jsorant.enigma.backend.shared.generation.domain.ExcludeFromGeneratedCodeCoverage;
-import com.jsorant.enigma.backend.shared.error.domain.Assert;
 
 final class ApplicationStartupTraces {
 

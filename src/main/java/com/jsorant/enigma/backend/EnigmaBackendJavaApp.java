@@ -1,12 +1,11 @@
 package com.jsorant.enigma.backend;
 
+import com.jsorant.enigma.backend.shared.generation.domain.ExcludeFromGeneratedCodeCoverage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
-
-import com.jsorant.enigma.backend.shared.generation.domain.ExcludeFromGeneratedCodeCoverage;
 
 @SpringBootApplication
 @ExcludeFromGeneratedCodeCoverage(reason = "Not testing logs")
