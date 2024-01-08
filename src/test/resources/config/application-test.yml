@@ -1,0 +1,10 @@
+logging:
+  level:
+    com:
+      jsorant:
+        enigma:
+          backend: 'OFF'
+  config: classpath:logback.xml
+spring:
+  main:
+    banner-mode: 'off'

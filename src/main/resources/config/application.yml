@@ -1,0 +1,12 @@
+logging:
+  level:
+    com:
+      jsorant:
+        enigma:
+          backend: INFO
+spring:
+  application:
+    name: EnigmaBackendJava
+  threads:
+    virtual:
+      enabled: true

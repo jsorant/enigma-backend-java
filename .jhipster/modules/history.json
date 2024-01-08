@@ -54,5 +54,16 @@
       "indentSize" : 2,
       "configurationFormat" : "yaml"
     }
+  }, {
+    "module" : "spring-boot",
+    "date" : "2024-01-08T09:47:21.769939865Z",
+    "properties" : {
+      "endOfLine" : "lf",
+      "packageName" : "com.jsorant.enigma.backend",
+      "projectName" : "Enigma Backend Java",
+      "baseName" : "enigmaBackendJava",
+      "indentSize" : 2,
+      "configurationFormat" : "yaml"
+    }
   } ]
 }
