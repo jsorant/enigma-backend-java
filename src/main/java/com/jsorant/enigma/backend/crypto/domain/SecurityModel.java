@@ -36,6 +36,10 @@ public class SecurityModel {
     return result;
   }
 
+  public SecurityModelSnapshot snapshot() {
+    return new SecurityModelSnapshot(this.name);
+  }
+
   public static class SecurityModelBuilder {
 
     private String name;

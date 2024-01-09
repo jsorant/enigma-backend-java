@@ -8,7 +8,7 @@ public class Rotor implements Engine {
 
   private final String rotorValue;
 
-  Rotor(String rotorValue) {
+  public Rotor(String rotorValue) {
     Assert.notBlank("rotorValue", rotorValue);
     Assert.field("rotorValue", rotorValue).minLength(ALPHABET.length());
     Assert.field("rotorValue", rotorValue).maxLength(ALPHABET.length());
