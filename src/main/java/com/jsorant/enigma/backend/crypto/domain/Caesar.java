@@ -9,18 +9,18 @@ public class Caesar {
   public Caesar() {}
 
   public String encrypt(String input, int shift, int increment) {
-    return applyTransformationOn(input, shift, increment, Caesar::incrementChar);
+    return transformWith(Caesar::incrementChar, input, shift, increment);
   }
 
   public String decrypt(String input, int shift, int increment) {
-    return applyTransformationOn(input, shift, increment, Caesar::decrementChar);
+    return transformWith(Caesar::decrementChar, input, shift, increment);
   }
 
-  interface CharTransformationFunction {
+  private interface CharTransformationFunction {
     int run(int shift, char c);
   }
 
-  private String applyTransformationOn(String input, int shift, int increment, CharTransformationFunction transformationFunction) {
+  private String transformWith(CharTransformationFunction transformationFunction, String input, int shift, int increment) {
     StringBuilder sb = new StringBuilder();
     for (char c : input.toCharArray()) {
       int newAsciiCharCode = transformationFunction.run(shift, c);
