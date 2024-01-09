@@ -10,11 +10,11 @@ import com.jsorant.enigma.backend.shared.error.domain.MissingMandatoryValueExcep
 import org.junit.jupiter.api.Test;
 
 @UnitTest
-public class EncryptTest {
+public class DecryptTest {
 
   @Test
   void shouldThrowWithoutSecurityModelRepository() {
-    assertThatThrownBy(() -> new Encrypt(null))
+    assertThatThrownBy(() -> new Decrypt(null))
       .isExactlyInstanceOf(MissingMandatoryValueException.class)
       .hasMessageContaining("securityModelRepository");
   }
@@ -22,11 +22,11 @@ public class EncryptTest {
   @Test
   void shouldThrowWithoutSecurityModelName() {
     SecurityModelRepository securityModelRepository = new InMemorySecurityModelRepository();
-    assertThatThrownBy(() -> new Encrypt(securityModelRepository).run(null, "Input text"))
+    assertThatThrownBy(() -> new Decrypt(securityModelRepository).run(null, "Input text"))
       .isExactlyInstanceOf(MissingMandatoryValueException.class)
       .hasMessageContaining("securityModelName");
 
-    assertThatThrownBy(() -> new Encrypt(securityModelRepository).run("", "Input text"))
+    assertThatThrownBy(() -> new Decrypt(securityModelRepository).run("", "Input text"))
       .isExactlyInstanceOf(MissingMandatoryValueException.class)
       .hasMessageContaining("securityModelName");
   }
@@ -35,19 +35,19 @@ public class EncryptTest {
   void shouldThrowIfNoSecurityModelFound() {
     SecurityModelRepository securityModelRepository = new InMemorySecurityModelRepository();
 
-    assertThatThrownBy(() -> new Encrypt(securityModelRepository).run("AnyName", "Input text"))
+    assertThatThrownBy(() -> new Decrypt(securityModelRepository).run("AnyName", "Input text"))
       .isExactlyInstanceOf(SecurityModelNotFoundException.class)
       .hasMessageContaining("AnyName");
   }
 
   @Test
-  void shouldEncrypt() {
+  void shouldDecrypt() {
     SecurityModelRepository securityModelRepository = Fixtures.securityModelRepositoryWithEnigma();
-    Encrypt encrypt = new Encrypt(securityModelRepository);
+    Decrypt decrypt = new Decrypt(securityModelRepository);
 
     assertDoesNotThrow(() -> {
-      assertThat(encrypt.run(Fixtures.enigmaSecurityModelName(), "EVERYONEISWELCOMEHEREEVERYONEISWELCOMEHERE"))
-        .isEqualTo("MKDWDLTEUPWZBXMTWUUROXHBZBYJDAMZRUWXJZAACQ");
+      assertThat(decrypt.run(Fixtures.enigmaSecurityModelName(), "MKDWDLTEUPWZBXMTWUUROXHBZBYJDAMZRUWXJZAACQ"))
+        .isEqualTo("EVERYONEISWELCOMEHEREEVERYONEISWELCOMEHERE");
     });
   }
 }

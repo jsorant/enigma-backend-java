@@ -1,6 +1,6 @@
 package com.jsorant.enigma.backend.usecase;
 
-import com.jsorant.enigma.backend.crypto.domain.SecurityModel;
+import com.jsorant.enigma.backend.domain.SecurityModel;
 import java.util.Optional;
 
 public interface SecurityModelRepository {

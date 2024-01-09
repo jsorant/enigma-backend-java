@@ -1,4 +1,4 @@
-package com.jsorant.enigma.backend.crypto.domain;
+package com.jsorant.enigma.backend.domain;
 
 public class Caesar implements Engine {
 

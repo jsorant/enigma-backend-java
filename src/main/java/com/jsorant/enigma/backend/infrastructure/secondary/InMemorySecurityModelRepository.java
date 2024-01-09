@@ -1,7 +1,7 @@
 package com.jsorant.enigma.backend.infrastructure.secondary;
 
-import com.jsorant.enigma.backend.crypto.domain.SecurityModel;
-import com.jsorant.enigma.backend.crypto.domain.SecurityModelSnapshot;
+import com.jsorant.enigma.backend.domain.SecurityModel;
+import com.jsorant.enigma.backend.domain.SecurityModelSnapshot;
 import com.jsorant.enigma.backend.usecase.SecurityModelRepository;
 import java.util.HashMap;
 import java.util.Optional;
@@ -21,6 +21,6 @@ public class InMemorySecurityModelRepository implements SecurityModelRepository 
   @Override
   public void save(SecurityModel securityModel) {
     SecurityModelSnapshot snapshot = securityModel.snapshot();
-    map.put(snapshot.name, securityModel);
+    map.put(snapshot.name(), securityModel);
   }
 }

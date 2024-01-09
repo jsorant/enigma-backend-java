@@ -1,4 +1,4 @@
-package com.jsorant.enigma.backend.crypto.domain;
+package com.jsorant.enigma.backend.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

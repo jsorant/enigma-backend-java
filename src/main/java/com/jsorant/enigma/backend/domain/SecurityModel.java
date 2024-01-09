@@ -1,4 +1,4 @@
-package com.jsorant.enigma.backend.crypto.domain;
+package com.jsorant.enigma.backend.domain;
 
 import com.jsorant.enigma.backend.shared.error.domain.Assert;
 import java.util.ArrayList;

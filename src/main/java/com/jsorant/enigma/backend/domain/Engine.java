@@ -1,4 +1,4 @@
-package com.jsorant.enigma.backend.crypto.domain;
+package com.jsorant.enigma.backend.domain;
 
 interface Engine {
   String encrypt(String input);
