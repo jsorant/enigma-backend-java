@@ -5,9 +5,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import com.jsorant.enigma.backend.UnitTest;
-import com.jsorant.enigma.backend.crypto.domain.Caesar;
-import com.jsorant.enigma.backend.crypto.domain.Rotor;
 import com.jsorant.enigma.backend.crypto.domain.SecurityModel;
+import com.jsorant.enigma.backend.infrastructure.secondary.InMemorySecurityModelRepository;
 import com.jsorant.enigma.backend.shared.error.domain.MissingMandatoryValueException;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +22,7 @@ public class EncryptTest {
 
   @Test
   void shouldThrowWithoutSecurityModelName() {
-    SecurityModelRepository securityModelRepository = new SecurityModelRepositoryMock();
+    SecurityModelRepository securityModelRepository = new InMemorySecurityModelRepository();
     assertThatThrownBy(() -> new Encrypt(securityModelRepository).run(null, "Input text"))
       .isExactlyInstanceOf(MissingMandatoryValueException.class)
       .hasMessageContaining("securityModelName");
@@ -35,7 +34,7 @@ public class EncryptTest {
 
   @Test
   void shouldThrowIfNoSecurityModelFound() {
-    SecurityModelRepository securityModelRepository = new SecurityModelRepositoryMock();
+    SecurityModelRepository securityModelRepository = new InMemorySecurityModelRepository();
     assertThatThrownBy(() -> new Encrypt(securityModelRepository).run("AnyName", "Input text"))
       .isExactlyInstanceOf(SecurityModelNotFoundException.class)
       .hasMessageContaining("AnyName");
@@ -43,8 +42,7 @@ public class EncryptTest {
 
   @Test
   void shouldEncrypt() {
-    SecurityModelRepositoryMock securityModelRepository = new SecurityModelRepositoryMock();
-    securityModelRepository.save(enigmaSecurityModel());
+    SecurityModelRepository securityModelRepository = initializeSecurityModelRepositoryWithEnigma();
     Encrypt encrypt = new Encrypt(securityModelRepository);
 
     assertDoesNotThrow(() -> {
@@ -53,14 +51,20 @@ public class EncryptTest {
     });
   }
 
+  private static SecurityModelRepository initializeSecurityModelRepositoryWithEnigma() {
+    InMemorySecurityModelRepository securityModelRepository = new InMemorySecurityModelRepository();
+    securityModelRepository.save(enigmaSecurityModel());
+    return securityModelRepository;
+  }
+
   private static SecurityModel enigmaSecurityModel() {
     return SecurityModel
       .builder()
       .name(enigmaSecurityModelName())
-      .withEngine(new Caesar(9, 3))
-      .withEngine(new Rotor("BDFHTXVZNYEIWGAKMUSQOJLCPR"))
-      .withEngine(new Rotor("AJDKSIRUXBGZNPYFVOELHWTMCQ"))
-      .withEngine(new Rotor("TOWYHXUSPAIBRCJEKMFLGDQVZN"))
+      .withCaesar(9, 3)
+      .withRotor("BDFHTXVZNYEIWGAKMUSQOJLCPR")
+      .withRotor("AJDKSIRUXBGZNPYFVOELHWTMCQ")
+      .withRotor("TOWYHXUSPAIBRCJEKMFLGDQVZN")
       .build();
   }
 

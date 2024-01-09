@@ -53,8 +53,13 @@ public class SecurityModel {
       return this;
     }
 
-    public SecurityModelBuilder withEngine(Engine engine) {
-      engines.add(engine);
+    public SecurityModelBuilder withCaesar(int shift, int increment) {
+      engines.add(new Caesar(shift, increment));
+      return this;
+    }
+
+    public SecurityModelBuilder withRotor(String value) {
+      engines.add(new Rotor(value));
       return this;
     }
 

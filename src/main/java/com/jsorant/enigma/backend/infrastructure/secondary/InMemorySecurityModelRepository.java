@@ -1,11 +1,12 @@
-package com.jsorant.enigma.backend.usecase;
+package com.jsorant.enigma.backend.infrastructure.secondary;
 
 import com.jsorant.enigma.backend.crypto.domain.SecurityModel;
 import com.jsorant.enigma.backend.crypto.domain.SecurityModelSnapshot;
+import com.jsorant.enigma.backend.usecase.SecurityModelRepository;
 import java.util.HashMap;
 import java.util.Optional;
 
-public class SecurityModelRepositoryMock implements SecurityModelRepository {
+public class InMemorySecurityModelRepository implements SecurityModelRepository {
 
   private final HashMap<String, SecurityModel> map = new HashMap<>();
 

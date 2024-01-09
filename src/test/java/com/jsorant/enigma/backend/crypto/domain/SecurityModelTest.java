@@ -31,12 +31,7 @@ public class SecurityModelTest {
   @Test
   void shouldBuildWithMultipleEngines() {
     assertDoesNotThrow(() ->
-      SecurityModel
-        .builder()
-        .name("SecurityModelTest")
-        .withEngine(new Caesar(1, 1))
-        .withEngine(new Rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO"))
-        .build()
+      SecurityModel.builder().name("SecurityModelTest").withCaesar(1, 1).withRotor("BDFHJLCPRTXVZNYEIWGAKMUSQO").build()
     );
   }
 
@@ -53,10 +48,10 @@ public class SecurityModelTest {
     SecurityModel securityModel = SecurityModel
       .builder()
       .name("SecurityModelTest")
-      .withEngine(new Caesar(shift, increment))
-      .withEngine(new Rotor(rotor1))
-      .withEngine(new Rotor(rotor2))
-      .withEngine(new Rotor(rotor3))
+      .withCaesar(shift, increment)
+      .withRotor(rotor1)
+      .withRotor(rotor2)
+      .withRotor(rotor3)
       .build();
 
     assertThat(securityModel.encrypt(input)).isEqualTo(expectedResult);
@@ -96,10 +91,10 @@ public class SecurityModelTest {
     SecurityModel securityModel = SecurityModel
       .builder()
       .name("SecurityModelTest")
-      .withEngine(new Caesar(shift, increment))
-      .withEngine(new Rotor(rotor1))
-      .withEngine(new Rotor(rotor2))
-      .withEngine(new Rotor(rotor3))
+      .withCaesar(shift, increment)
+      .withRotor(rotor1)
+      .withRotor(rotor2)
+      .withRotor(rotor3)
       .build();
 
     assertThat(securityModel.decrypt(input)).isEqualTo(expectedResult);
