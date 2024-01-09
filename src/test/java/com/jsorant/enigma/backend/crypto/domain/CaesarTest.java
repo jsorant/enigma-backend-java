@@ -13,18 +13,18 @@ import org.junit.jupiter.params.provider.ArgumentsSource;
 @UnitTest
 class CaesarTest {
 
-  private final Caesar caesar = new Caesar();
-
   @ParameterizedTest(name = "Encrypt {0} with shift {1} and increment {2} should return {3}")
   @ArgumentsSource(EncryptArgumentsProvider.class)
   void shouldEncrypt(String input, int shift, int increment, String expectedResult) {
-    assertThat(this.caesar.encrypt(input, shift, increment)).isEqualTo(expectedResult);
+    Caesar caesar = new Caesar(shift, increment);
+    assertThat(caesar.encrypt(input)).isEqualTo(expectedResult);
   }
 
   @ParameterizedTest(name = "Decrypt {0} with shift {1} and increment {2} should return {3}")
   @ArgumentsSource(DecryptArgumentsProvider.class)
   void shouldDecrypt(String input, int shift, int increment, String expectedResult) {
-    assertThat(this.caesar.decrypt(input, shift, increment)).isEqualTo(expectedResult);
+    Caesar caesar = new Caesar(shift, increment);
+    assertThat(caesar.decrypt(input)).isEqualTo(expectedResult);
   }
 
   static class EncryptArgumentsProvider implements ArgumentsProvider {

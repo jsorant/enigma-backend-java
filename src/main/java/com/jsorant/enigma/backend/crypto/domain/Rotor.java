@@ -2,7 +2,7 @@ package com.jsorant.enigma.backend.crypto.domain;
 
 import com.jsorant.enigma.backend.shared.error.domain.Assert;
 
-public class Rotor {
+public class Rotor implements Engine {
 
   private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -16,10 +16,12 @@ public class Rotor {
     this.rotorValue = rotorValue;
   }
 
+  @Override
   public String encrypt(String input) {
     return transformString(input, ALPHABET, rotorValue);
   }
 
+  @Override
   public String decrypt(String input) {
     return transformString(input, rotorValue, ALPHABET);
   }
